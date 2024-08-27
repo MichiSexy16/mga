@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #1a1a1a;
+        }
+
+        .music-container {
+            text-align: center;
+        }
+
+        .music-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            border: none;
+            border-radius: 25px;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(255, 20, 147, 0.4);
+        }
+
+        .music-button:hover {
+            background: linear-gradient(45deg, #ff1493, #ff69b4);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(255, 20, 147, 0.6);
+        }
+
+        .music-button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="music-container">
+        <audio id="background-music" src="miau.mp3" preload="auto"></audio>
+        <button class="music-button" id="toggle-music">Reproducir Música</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const music = document.getElementById('background-music');
+            const toggleButton = document.getElementById('toggle-music');
+            let isPlaying = sessionStorage.getItem('isPlaying') === 'true';
+            
+            if (isPlaying) {
+                music.play();
+                toggleButton.textContent = 'Pausar Música';
+            }
+
+            toggleButton.addEventListener('click', function() {
+                if (music.paused) {
+                    music.play();
+                    toggleButton.textContent = 'Pausar Música';
+                    sessionStorage.setItem('isPlaying', 'true');
+                } else {
+                    music.pause();
+                    toggleButton.textContent = 'Reproducir Música';
+                    sessionStorage.setItem('isPlaying', 'false');
+                }
+            });
+
+            // Guardar el estado del tiempo de la música
+            music.addEventListener('timeupdate', () => {
+                sessionStorage.setItem('currentTime', music.currentTime);
+            });
+
+            // Restaurar el tiempo de la música
+            if (sessionStorage.getItem('currentTime')) {
+                music.currentTime = sessionStorage.getItem('currentTime');
+            }
+        });
+    </script>
+</body>
+</html>

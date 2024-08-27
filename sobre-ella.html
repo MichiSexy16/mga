@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Ella</title>
+    <!-- Incluye Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000; /* Fondo negro para mantener la coherencia con la página principal */
+            color: #fff; /* Color de texto blanco para contraste */
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            text-align: center;
+            overflow: hidden; /* Oculta el desbordamiento para los copos de nieve */
+            position: relative; /* Posicionamiento para los copos de nieve */
+        }
+
+        .navbar {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px 20px;
+            background-color: #333;
+            border-radius: 0 0 0 10px;
+            width: 100%;
+            text-align: right;
+            z-index: 1000; /* Asegura que la navbar esté sobre otros elementos */
+        }
+
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            display: inline-block;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+
+        .circular-image {
+            width: 50vw;
+            height: 50vw;
+            max-width: 400px;
+            max-height: 400px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 80px auto; /* Reduce el margen superior para posicionar la imagen más arriba */
+        }
+
+        .circular-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content {
+            margin-top: 40px; /* Reduce el margen superior para subir el texto */
+        }
+
+        .content h1, .content p {
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        .content h1 {
+            animation-delay: 1s;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #ff69b4; /* Color inicial */
+            text-shadow: 0 0 10px #ff69b4; /* Efecto de sombra */
+            transition: color 2s ease-in-out, text-shadow 2s ease-in-out;
+        }
+
+        .content p {
+            margin: 10px 0;
+            font-size: 1rem;
+            line-height: 1.6;
+            animation-delay: 2s;
+        }
+
+        .content p span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.5s forwards;
+        }
+
+        .content p span:nth-child(odd) {
+            animation-delay: calc(2s + var(--index) * 0.1s);
+            color: #ff69b4; /* Color alternativo */
+        }
+
+        .content p span:nth-child(even) {
+            animation-delay: calc(2.2s + var(--index) * 0.1s);
+            color: #00ffff; /* Otro color alternativo */
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px;
+                text-align: center;
+            }
+
+            .navbar a {
+                display: block;
+                padding: 10px;
+                font-size: 1rem;
+            }
+
+            .circular-image {
+                width: 70vw;
+                height: 70vw;
+                margin-top: 100px; /* Reduce el margen superior para mantener la proporción */
+            }
+
+            .content {
+                margin-top: 20px; /* Reduce el margen superior para subir el texto */
+            }
+
+            .content h1 {
+                font-size: 1.5rem;
+            }
+
+            .content p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 10px;
+                text-align: center;
+            }
+
+            .navbar a {
+                display: block;
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+
+            .circular-image {
+                width: 80vw;
+                height: 80vw;
+                margin-top: 100px; /* Reduce el margen superior para mantener la proporción */
+            }
+
+            .content {
+                margin-top: 20px; /* Reduce el margen superior para subir el texto */
+            }
+
+            .content h1 {
+                font-size: 1.2rem;
+            }
+
+            .content p {
+                font-size: 0.8rem;
+            }
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: white;
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Inicio</a>
+        <a href="fotos.html">Fotos</a>
+        <a href="Hobbies.html">Hobbies</a>
+    </div>
+
+    <div class="circular-image">
+        <img src="./images/1.jpeg" alt="Imagen Circular">
+    </div>
+
+    <div class="content">
+        <h1>Descripción</h1>
+        <p>
+            <span style="--index: 0;">En</span> <span style="--index: 1;">la</span> <span style="--index: 2;">danza</span> <span style="--index: 3;">sutil</span> <span style="--index: 4;">de</span> <span style="--index: 5;">la</span> <span style="--index: 6;">luz,</span> <span style="--index: 7;">Belén</span> <span style="--index: 8;">emerge</span> <span style="--index: 9;">como</span> <span style="--index: 10;">un</span> <span style="--index: 11;">verso</span> <span style="--index: 12;">encantado.</span> <span style="--index: 13;">Sus</span> <span style="--index: 14;">ojos,</span> <span style="--index: 15;">dos</span> <span style="--index: 16;">estrellas</span> <span style="--index: 17;">fugaces</span> <span style="--index: 18;">en</span> <span style="--index: 19;">el</span> <span style="--index: 20;">crepúsculo,</span> <span style="--index: 21;">llevan</span> <span style="--index: 22;">en</span> <span style="--index: 23;">su</span> <span style="--index: 24;">profundidad</span> <span style="--index: 25;">un</span> <span style="--index: 26;">reflejo</span> <span style="--index: 27;">de</span> <span style="--index: 28;">secretos</span> <span style="--index: 29;">celestiales.</span>
+        </p>
+        <h1></h1>
+        <p>
+            <span style="--index: 30;">Cada</span> <span style="--index: 31;">parpadeo</span> <span style="--index: 32;">es</span> <span style="--index: 33;">un</span> <span style="--index: 34;">susurro</span> <span style="--index: 35;">de</span> <span style="--index: 36;">magia,</span> <span style="--index: 37;">un</span> <span style="--index: 38;">destello</span> <span style="--index: 39;">que</span> <span style="--index: 40;">ilumina</span> <span style="--index: 41;">el</span> <span style="--index: 42;">mundo</span> <span style="--index: 43;">con</span> <span style="--index: 44;">su</span> <span style="--index: 45;">presencia.</span>
+        </p>
+        <p>
+            <span style="--index: 46;">Su</span> <span style="--index: 47;">piel,</span> <span style="--index: 48;">de</span> <span style="--index: 49;">la</span> <span style="--index: 50;">suavidad</span> <span style="--index: 51;">de</span> <span style="--index: 52;">los</span> <span style="--index: 53;">pétalos</span> <span style="--index: 54;">de</span> <span style="--index: 55;">rosa,</span> <span style="--index: 56;">brilla</span> <span style="--index: 57;">con</span> <span style="--index: 58;">el</span> <span style="--index: 59;">resplandor</span> <span style="--index: 60;">del</span> <span style="--index: 61;">alba,</span> <span style="--index: 62;">como</span> <span style="--index: 63;">si</span> <span style="--index: 64;">la</span> <span style="--index: 65;">luz</span> <span style="--index: 66;">misma</span> <span style="--index: 67;">se</span> <span style="--index: 68;">hubiera</span> <span style="--index: 69;">posado</span> <span style="--index: 70;">en</span> <span style="--index: 71;">ella.</span>
+        </p>
+        <p>
+            <span style="--index: 72;">La</span> <span style="--index: 73;">gracia</span> <span style="--index: 74;">de</span> <span style="--index: 75;">sus</span> <span style="--index: 76;">movimientos,</span> <span style="--index: 77;">tan</span> <span style="--index: 78;">fluidos</span> <span style="--index: 79;">y</span> <span style="--index: 80;">elegantes,</span> <span style="--index: 81;">evoca</span> <span style="--index: 82;">la</span> <span style="--index: 83;">serenidad</span> <span style="--index: 84;">de</span> <span style="--index: 85;">un</span> <span style="--index: 86;">río</span> <span style="--index: 87;">en</span> <span style="--index: 88;">calma.</span>
+        </p>
+        <p>
+            <span style="--index: 89;">Su</span> <span style="--index: 90;">risa,</span> <span style="--index: 91;">una</span> <span style="--index: 92;">melodía</span> <span style="--index: 93;">etérea,</span> <span style="--index: 94;">es</span> <span style="--index: 95;">un</span> <span style="--index: 96;">eco</span> <span style="--index: 97;">de</span> <span style="--index: 98;">felicidad</span> <span style="--index: 99;">que</span> <span style="--index: 100;">transforma</span> <span style="--index: 101;">el</span> <span style="--index: 102;">aire</span> <span style="--index: 103;">en</span> <span style="--index: 104;">música.</span>
+        </p>
+        <p>
+            <span style="--index: 105;">El</span> <span style="--index: 106;">cabello</span> <span style="--index: 107;">de</span> <span style="--index: 108;">Belén</span> <span style="--index: 109;">cae</span> <span style="--index: 110;">en</span> <span style="--index: 111;">ondas</span> <span style="--index: 112;">sedosas,</span> <span style="--index: 113;">como</span> <span style="--index: 114;">una</span> <span style="--index: 115;">cascada</span> <span style="--index: 116;">de</span> <span style="--index: 117;">noche</span> <span style="--index: 118;">estrellada</span> <span style="--index: 119;">que</span> <span style="--index: 120;">enmarca</span> <span style="--index: 121;">su</span> <span style="--index: 122;">rostro</span> <span style="--index: 123;">radiante.</span>
+        </p>
+        <p>
+            <span style="--index: 124;">Cada</span> <span style="--index: 125;">mechón</span> <span style="--index: 126;">parece</span> <span style="--index: 127;">tener</span> <span style="--index: 128;">vida</span> <span style="--index: 129;">propia,</span> <span style="--index: 130;">bailando</span> <span style="--index: 131;">al</span> <span style="--index: 132;">ritmo</span> <span style="--index: 133;">de</span> <span style="--index: 134;">su</span> <span style="--index: 135;">espíritu</span> <span style="--index: 136;">libre</span> <span style="--index: 137;">y</span> <span style="--index: 138;">alegre.</span>
+        </p>
+        <p>
+            <span style="--index: 139;">Su</span> <span style="--index: 140;">presencia</span> <span style="--index: 141;">es</span> <span style="--index: 142;">una</span> <span style="--index: 143;">sinfonía</span> <span style="--index: 144;">de</span> <span style="--index: 145;">belleza</span> <span style="--index: 146;">y</span> <span style="--index: 147;">dulzura,</span> <span style="--index: 148;">un</span> <span style="--index: 149;">retrato</span> <span style="--index: 150;">viviente</span> <span style="--index: 151;">de</span> <span style="--index: 152;">la</span> <span style="--index: 153;">perfección.</span>
+        </p>
+       
+    </div>
+    <!-- Incluir este código en todas tus páginas -->
+<iframe src="music-player.html" style="position: fixed; bottom: 10px; right: 10px; width: 200px; height: 100px; border: none; z-index: 9999;"></iframe>
+
+
+    <!-- JavaScript para la animación de nieve -->
+    <script>
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.textContent = '❄';
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            snowflake.style.opacity = Math.random();
+            snowflake.style.fontSize = Math.random() * 30 + 20 + 'px'; // Tamaño aleatorio entre 20px y 50px
+            
+            document.body.appendChild(snowflake);
+
+            // Animar caída
+            snowflake.style.animationDuration = Math.random() * 5 + 5 + 's'; // Duración aleatoria entre 5s y 10s
+
+            // Eliminar el copo de nieve después de la animación
+            setTimeout(() => {
+                snowflake.remove();
+            }, (parseFloat(snowflake.style.animationDuration) * 1000)); // Esperar a que termine la animación
+        }
+
+        setInterval(createSnowflake, 200); // Crea un copo de nieve cada 200ms
+    </script>
+
+    <!-- Incluye Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
